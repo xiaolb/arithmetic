@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>选择排序</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function selectionSort(arr) {
+			// 判断是否是数组，不是则抛出错误
+			if(!Array.isArray(arr)) {
+				throw new Error('传入的不是数组')
+			}
+
+			const len = arr.length;
+
+			// 判断长度是否小于等于1，是则直接返回
+			if(len <= 1) {
+				return arr;
+			}
+
+			/*
+				定义一个最小值的索引minIndex，如果后边有值比当前值小，则将索引赋值给minIndex 
+			*/
+			for (let i = 0; i < len-1; i++) {
+				let minIndex = i;
+				for (let j = i + 1; j < len; j++) {
+					if(arr[minIndex] > arr[j]) {
+						minIndex = j;
+					}
+				}
+
+				// 不相等的时候才进行交换
+				if(i !== minIndex) {
+					[arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+				}
+				
+			}
+
+			return arr;
+		}
+
+		const testArr = [2,4,1,4,5322,234,104,61,1];
+
+		console.log(selectionSort(testArr))
+	</script>
+</body>
+</html>
