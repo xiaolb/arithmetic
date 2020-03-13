@@ -1,8 +1,12 @@
 > 关于各类算法的原理和实现
 
 排序算法的时间和空间复杂度图：
-![十大算法时间和空间复杂度.jpg](https://upload-images.jianshu.io/upload_images/10567362-ba1fa4352f1f172b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![排序算法时间和空间复杂度.jpg](https://upload-images.jianshu.io/upload_images/10567362-ba1fa4352f1f172b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 目前已有的算法：
-1. 冒泡排序(bubble sort)
-2. 选择排序(selection sort)
+[1. 冒泡排序(bubble sort)](https://www.jianshu.com/p/ac9630c96900)
+[2. 选择排序(selection sort)](https://www.jianshu.com/p/78a4fd89e374)
+[3. 插入排序(insertion sort)](https://www.jianshu.com/p/d29d8fd91bb2)
+
+
+[github算法地址](https://github.com/xiaolb/arithmetic)
