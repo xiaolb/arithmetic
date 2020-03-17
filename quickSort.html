@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>快速排序</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+function quickSort(arr) {
+	// 判断是否是数组，不是则抛出错误
+	if(!Array.isArray(arr)) {
+		throw new Error('传入的不是数组')
+	}
+
+	const len = arr.length;
+
+	// 判断长度是否小于等于1，是则直接返回
+	if(len <= 1) {
+		return arr;
+	}
+
+	const sort = (arr, left = 0, right = len - 1) => {
+		if(left >= right) { //如果左边的索引大于等于右边的索引说明整理完毕
+			return 
+		}
+
+		let i = left, j = right;
+		const baseVal = arr[i]; // 取无序数组第一个数为基准值
+
+		//把所有比基准值小的数放在左边大的数放在右边
+		while(i < j) {
+			//找到一个比基准值小的数交换，j>i一定需要，否则会出现j和i不相等的情况
+			while(j > i && baseVal <= arr[j]) {
+				j--;
+			}
+			arr[i]=arr[j]; // 将较小的值放在左边如果没有找到比基准值小的数就是将自己赋值给自己（i 等于 j）
+
+			//找到一个比基准值大的数交换，j>i一定需要，否则会出现j和i不相等的情况
+			while(j > i && arr[i] <= baseVal) {
+				i++
+			}
+
+			arr[j] = arr[i]; // 将较大的值放在右边如果没有比基准值大的数就是将自己赋值给自己（i 等于 j）
+		}
+
+		arr[i] = baseVal; // 将基准值放至中央位置完成一次循环（这时候 j 等于 i ）
+
+		sort(arr,left, j-1);// 将左边的无序数组重复上面的操作
+
+		sort(arr,j+1, right);// 将右边的无序数组重复上面的操作
+	}
+
+	sort(arr)
+
+	return arr
+
+}
+
+		const testArr = [2,4,1,4,5322,234,104,61,1];
+
+		console.log(quickSort(testArr))
+
+
+
+
+	</script>
+	</script>
+</body>
+</html>
