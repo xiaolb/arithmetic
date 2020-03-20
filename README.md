@@ -17,5 +17,5 @@
 
 [6. 归并排序(merge sort)](https://www.jianshu.com/p/6c83b5678b39)
 
-
+[7. 堆排序(heap sort)](https://www.jianshu.com/p/46855adb86c0)
 
