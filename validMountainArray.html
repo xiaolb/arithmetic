@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		
+	</title>
+</head>
+<body>
+<script type="text/javascript">
+	var validMountainArray = function(A) {
+	    const len = A.length;
+
+	    if(len < 3) return false;
+
+	    const max = Math.max(...A);
+	    const findIndex = A.findIndex((item) => item === max);
+	    if(findIndex === len-1) return false;
+	    for(let i = 1; i <= findIndex; i++) {
+	        if(A[i-1] >= A[i]) {
+	            return false;
+	        }
+	    }
+	    for(let i = findIndex+1; i <= len; i++) {
+	        if(A[i-1] <= A[i]) {
+	            return false;
+	        }
+	    }
+	    return true
+	};
+	const A=[0,1,2,3,4,5,6,7,8,9]
+</script>
+</body>
+</html>
