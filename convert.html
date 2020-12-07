@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		/**
+ * @param {string} s
+ * @param {number} numRows
+ * @return {string}
+ */
+// 第一种
+var convert = function(s, numRows) {
+    const len = s.length;
+    if(numRows === 1 || len < numRows) return s;
+    let down = false; // 是否向下遍历
+    let curRow = 0; // 当前行数
+    let resObj = {}; // 存放各个行的字符串
+    let res = ""; // 返回值
+
+    // 当在第一行和最后一行的时候会改变方向
+    for(let col of s) {
+        // 将值加入当前行的字符串中
+        resObj[curRow] = (resObj[curRow] || '') + col;
+
+        // 为第一行和最后一行的时候改变方向
+        if(curRow === 0 || numRows-1 ===curRow) down = !down;
+
+        // 方向向下行数加1，向上行数-1
+        curRow += down ? 1 : -1;
+    }
+
+    // 将各个行的数据整合
+    for(let i = 0; i < numRows ;i++) {
+        res += resObj[i];
+    }
+    return res;
+}
+// 第二种
+// var convert = function(s, numRows) {
+//     if(numRows <= 1) return s;
+
+//     let len = s.length,arrStr = [], start = 0;
+//     const oneStrLen = 2*numRows - 2; // 按照V字分割长度
+//     let res = ''; // 结果返回值
+
+//     //  将字符串按照V字分割成数组
+//     do{
+//         arrStr.push(s.substr(start, oneStrLen));
+//         start += oneStrLen
+//     }while((len -= oneStrLen) > 0);
+
+//     // 遍历行数，按照行数将字母添加进结果res中
+//     for(let i = 0; i < numRows; i++) {
+//         arrStr.forEach((item) => {
+//             // 值存在就添加，
+//             item[i] && (res += item[i]);
+//             // 每个V字中最多存在两个同行的
+//             if(oneStrLen - i > i && item[oneStrLen-i]) {
+//                 res += item[oneStrLen-i];
+//             }
+//         })
+//     }
+//     return res
+// };
+
+		var s = "PAYPALISHIRING", numRows = 3;
+	</script>
+</body>
+</html>
