@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	</title>
+</head>
+<body>
+	<script>
+		var twoSum = function(nums, target) {
+
+		    const preNums = {}
+
+		    for(let i = 0; i < nums.length; i++) {
+		        const curNum = nums[i];
+		        const targetNum = target - curNum;
+
+		        const targetNumIndex = preNums[targetNum];
+		        if(targetNumIndex !== undefined) {
+		            return [targetNumIndex,i];
+		        } else {
+		            preNums[curNum] = i;
+		        }
+		    }
+		};
+
+
+const nums = [2, 7, 11, 15], target = 9;
+
+	</script>
+</body>
+</html>
