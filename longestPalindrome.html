@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	
+	</title>
+</head>
+<body>
+	<script>
+		var longestPalindrome = function(s) {
+		    let curNum = 0,maxLen = 1;
+		    for( let i = 0; i < s.length;i++) {
+		        const len1 = getNum(s, i, i);
+		        const len2 = getNum(s, i, i+1);
+		        const max = Math.max(len1, len2);
+		        if(max > maxLen) {
+		            maxLen = max;
+		            curNum = i - (max-1)/2;
+		            curNum = len1 > len2 ? curNum : curNum+1
+		        }
+		    }
+		    return s.substr(curNum,maxLen)
+		};
+					
+		function getNum(s, left,right) {
+		    while(left >= 0 && right < s.length && s[left] === s[right]) {
+		        left--;
+		        right++;
+		    } 
+		    return right -left - 1;
+		}
+	</script>
+</body>
+</html>
